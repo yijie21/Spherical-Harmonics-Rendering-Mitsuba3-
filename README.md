@@ -48,9 +48,10 @@ Right: (5000 bsdf samples, 5000 light samples) spherical harmonics rendering
 Comparison: the SH lighting result is very close to the ray-tracing result, since the object is mostly diffuse
 
 <center class="half">
-    <img src="assets/brass.png" width="400"/>
-    <img src="assets/brass_sh_5000.png" width="400"/>
+    <img src="assets/brass.png" width="300"/>
+    <img src="assets/brass_sh_5000.png" width="300"/>
 </center>
+
 
 ### scene: jar
 
@@ -61,9 +62,10 @@ Right: (5000 bsdf samples, 5000 light samples) spherical harmonics rendering
 Comparison: the SH lighting result **lacks highlight** in the left part of rendering, since spherical harmonics is limited to low frequency lighting (you can try increase the number of band for better SH rendering result)
 
 <center class="half">
-    <img src="assets/jar.png" width="400"/>
-    <img src="assets/jar_sh_5000.png" width="400"/>
+    <img src="assets/jar.png" width="300"/>
+    <img src="assets/jar_sh_5000.png" width="300"/>
 </center>
+
 
 ### scene: kitchen
 
@@ -74,8 +76,8 @@ Right: (1000 bsdf samples, 5000 light samples) spherical harmonics rendering
 Comparison: the SH lighting result is very close to the direct path traced result, since there are not so much high frequency effects to represent
 
 <center class="half">
-    <img src="assets/kitchen.png" width="400"/>
-    <img src="assets/kitchen_sh_1000.png" width="400"/>
+    <img src="assets/kitchen.png" width="300"/>
+    <img src="assets/kitchen_sh_1000.png" width="300"/>
 </center>
 
 ## Limitations
