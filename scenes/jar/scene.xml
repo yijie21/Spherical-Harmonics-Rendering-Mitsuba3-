@@ -1,0 +1,86 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="4096"/>
+	<default name="resx" value="1024"/>
+	<default name="resy" value="1024"/>
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="direct">
+		<!-- <integer name="max_depth" value="12"/> -->
+		<integer name="bsdf_samples" value="0" />
+	</integrator>
+	<sensor type="perspective" id="camera">
+		<string name="fov_axis" value="x"/>
+		<float name="fov" value="39.597755"/>
+		<float name="principal_point_offset_x" value="0.000000"/>
+		<float name="principal_point_offset_y" value="-0.000000"/>
+		<float name="near_clip" value="0.100000"/>
+		<float name="far_clip" value="100.000000"/>
+		<transform name="to_world">
+			<rotate x="1" angle="-155.79946998706393"/>
+			<rotate y="1" angle="-42.532028508870866"/>
+			<rotate z="1" angle="-179.9999640278213"/>
+			<translate value="0.793354 0.922225 0.881888"/>
+		</transform>
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+		<film type="hdrfilm">
+			<integer name="width" value="$resx"/>
+			<integer name="height" value="$resy"/>
+		</film>
+	</sensor>
+
+<!-- Materials -->
+
+	<bsdf type="twosided" id="mat-Cipollino Marble Vase">
+		<bsdf type="bumpmap">
+			<texture name="arbitrary" type="bitmap">
+				<boolean name="raw" value="true"/>
+				<string name="filename" value="textures/mat_griaz_cc02e74d_height.jpeg"/>
+			</texture>
+			<bsdf type="normalmap">
+				<texture name="normalmap" type="bitmap">
+					<boolean name="raw" value="true"/>
+					<string name="filename" value="textures/mat_griaz_cc02e74d_normal.jpeg"/>
+				</texture>
+				<bsdf type="principled">
+					<texture type="bitmap" name="base_color">
+						<string name="filename" value="textures/mat_griaz_cc02e74d_basecolor.jpeg"/>
+					</texture>
+					<float name="specular" value="0.500000"/>
+					<float name="sheen_tint" value="0.500000"/>
+					<float name="clearcoat_gloss" value="0.97"/>
+					<texture type="bitmap" name="metallic">
+						<string name="filename" value="textures/mat_griaz_cc02e74d_metallic.jpeg"/>
+						<boolean name="raw" value="true"/>
+					</texture>
+					<texture type="bitmap" name="roughness">
+						<string name="filename" value="textures/mat_griaz_cc02e74d_roughness.jpeg"/>
+						<boolean name="raw" value="true"/>
+					</texture>
+				</bsdf>
+			</bsdf>
+		</bsdf>
+	</bsdf>
+
+<!-- Emitters -->
+
+	<emitter type="envmap">
+		<string name="filename" value="textures/envmap.exr"/>
+		<float name="scale" value="1.000000"/>
+		<transform name="to_world">
+			<matrix value="0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000"/>
+		</transform>
+	</emitter>
+
+<!-- Shapes -->
+
+	<shape type="ply">
+		<string name="filename" value="meshes/Cipollino_Marble_Vase.ply"/>
+		<ref id="mat-Cipollino Marble Vase" name="bsdf"/>
+	</shape>
+</scene>
