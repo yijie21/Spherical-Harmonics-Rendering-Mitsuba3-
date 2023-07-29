@@ -79,8 +79,9 @@ Comparison: the SH lighting result is very close to the direct path traced resul
 
 <center class="half">
     <img src="assets/kitchen.png" width="500"/>
-    <img src="assets/kitchen_sh_1000.png" width="300"/>
+    <img src="assets/kitchen_sh_1000.png" width="500"/>
 </center>
+
 
 ## Limitations
 
